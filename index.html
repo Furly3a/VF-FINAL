@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V.F. Elettronica S.a.s. - Elettronica Marina d'Eccellenza</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f9fc; color: #333; }
+    header { background: linear-gradient(to right, #004080, #0077b6); color: white; padding: 40px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5em; }
+    nav { background: #e0e8f0; padding: 10px; text-align: center; }
+    nav a { margin: 0 15px; text-decoration: none; color: #004080; font-weight: bold; }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    section h2 { color: #004080; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; }
+    .card img { max-width: 100%; height: auto; border-radius: 8px; }
+    .brands img { max-width: 120px; margin: 10px; }
+    footer { background: #003366; color: white; text-align: center; padding: 20px; }
+    .cta { background: #0077b6; color: white; padding: 30px; text-align: center; border-radius: 10px; margin: 40px 0; }
+    .cta a, form button { background: white; color: #0077b6; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; border: none; cursor: pointer; }
+    .hero-img { width: 100%; max-height: 400px; object-fit: cover; display: block; }
+    form { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    form input, form select, form textarea { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>V.F. Elettronica S.a.s.</h1>
+    <p>L’elettronica marina che guida la tua rotta</p>
+  </header>
+  <img class="hero-img" src="images/hero-nautica.jpg" alt="Barca a motore sulle onde">
+
+  <nav>
+    <a href="#chi-siamo">Chi siamo</a>
+    <a href="#prodotti">Prodotti</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#marchi">Marchi trattati</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+
+  <section id="chi-siamo">
+    <h2>Chi siamo</h2>
+    <p>Fondata oltre 20 anni fa, V.F. Elettronica S.a.s. è un punto di riferimento per la fornitura e l’assistenza di sistemi elettronici per la nautica. Con sede operativa a Chioggia (VE), il nostro team altamente qualificato è certificato da Raymarine, Simrad e Furuno per garantire servizi professionali su misura.</p>
+  </section>
+
+  <section id="prodotti">
+    <h2>Prodotti</h2>
+    <div class="grid">
+      <div class="card"><img src="images/display.jpg" alt="Display Multifunzionali"><h3>Display Multifunzionali</h3></div>
+      <div class="card"><img src="images/radar.jpg" alt="Radar"><h3>Radar</h3></div>
+      <div class="card"><img src="images/sonar.jpg" alt="Sonar"><h3>Sonar e Trasduttori</h3></div>
+      <div class="card"><img src="images/pilot.jpg" alt="Piloti Automatici"><h3>Piloti Automatici</h3></div>
+      <div class="card"><img src="images/vhf.jpg" alt="VHF"><h3>Radio VHF</h3></div>
+      <div class="card"><img src="images/thermal.jpg" alt="Imaging Termico"><h3>Imaging Termico</h3></div>
+      <div class="card"><img src="images/satellite.jpg" alt="Antenne TV"><h3>Antenne Satellitari per TV</h3></div>
+    </div>
+  </section>
+
+  <section id="servizi">
+    <h2>Servizi</h2>
+    <ul>
+      <li>Installazioni personalizzate</li>
+      <li>Assistenza tecnica</li>
+      <li>Refitting elettronico</li>
+      <li>Formazione e consulenza tecnica</li>
+    </ul>
+  </section>
+
+  <section id="marchi">
+    <h2>Marchi trattati</h2>
+    <div class="brands">
+      <img src="images/raymarine-logo.png" alt="Raymarine">
+      <img src="images/oceanled-logo.png" alt="OceanLED">
+      <img src="images/simrad-logo.png" alt="Simrad">
+      <img src="images/furuno-logo.png" alt="Furuno">
+    </div>
+    <p>Il nostro team è certificato da Raymarine, Simrad e Furuno per fornire supporto conforme agli standard dei produttori.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Richiedi un preventivo gratuito</h2>
+    <form action="mailto:vf@vfelettronica.it" method="POST" enctype="multipart/form-data">
+      <input type="text" name="nome" placeholder="Nome e Cognome" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telefono" placeholder="Telefono">
+      <input type="text" name="locazione" placeholder="Locazione dell'imbarcazione" required>
+      <input type="text" name="marca_modello" placeholder="Marca e modello dell'imbarcazione" required>
+      <input type="text" name="lunghezza" placeholder="Lunghezza (m)" required>
+      <select name="servizio_richiesto" required>
+        <option value="">Seleziona un servizio</option>
+        <option>Sostituzione autopilota</option>
+        <option>Sostituzione radar</option>
+        <option>Riparazione GPS</option>
+        <option>Installazione antenne satellitari</option>
+        <option>Refitting elettronico</option>
+        <option>Sopralluogo</option>
+        <option>Formazione</option>
+      </select>
+      <textarea name="messaggio" placeholder="Dettagli aggiuntivi" rows="4"></textarea>
+      <input type="file" name="allegato" accept=".jpg,.png,.pdf">
+      <button type="submit">Invia richiesta</button>
+    </form>
+  </section>
+
+  <section id="contatti">
+    <h2>Contatti</h2>
+    <p>Email: <a href="mailto:vf@vfelettronica.it">vf@vfelettronica.it</a></p>
+    <p>Telefono: <a href="tel:+393384704527">+39 338 4704527</a> / <a href="tel:+393356354921">+39 335 6354921</a></p>
+    <p><strong>Sede:</strong> Calle Duomo 32/33, 30015 Chioggia (VE), Italy</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 V.F. Elettronica S.a.s. - Tutti i diritti riservati</p>
+    <p>Partita IVA: 01941590281 - Ragione Sociale: V.F. ELETTRONICA S.A.S.</p>
+  </footer>
+</body>
+</html>
