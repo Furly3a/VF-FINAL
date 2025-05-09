@@ -9,68 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Apple-like Scroll Snap */
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
-      overflow-x: hidden;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f9fc;
-      color: #333;
-    }
-    header, section, footer {
-      scroll-snap-align: start;
-      position: relative;
-    }
-    /* Header/Hero as full-screen */
-    header {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      background: linear-gradient(to bottom, rgba(0,64,128,0.8), rgba(0,119,182,0.8));
-      overflow: hidden;
-    }
-    .header-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.3;
-      will-change: transform;
-      z-index: -1;
-    }
-    header h1 { font-size: 3.5em; margin: 0; font-weight: 600; }
-    header p { font-size: 1.3em; margin-top: 0.5em; }
-    /* Sticky Nav with Hide on Scroll */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(10px);
-      padding: 15px 0;
-      text-align: center;
-      z-index: 1000;
-      transition: top 0.3s ease;
-    }
-    nav a { margin: 0 20px; text-decoration: none; color: #004080; font-weight: 600; transition: color 0.3s; }
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+    /* Base styles */
+    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: #f4f9fc; color: #333; }
+    p { font-size: 1.05em; line-height: 1.6; max-width: 800px; margin: 0 auto 20px; opacity: 0; transform: translateY(10px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    /* Header/Hero */
+    header { position: relative; padding: 100px 20px; text-align: center; color: #fff; background: linear-gradient(to bottom, rgba(0,64,128,0.8), rgba(0,119,182,0.8)); overflow: hidden; }
+    .header-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: -1; }
+    header h1 { margin: 0; font-size: 3em; font-weight: 600; }
+    header p { font-size: 1.2em; margin-top: 10px; }
+    /* Navigation */
+    nav { position: sticky; top: 0; background: #e0e8f0; padding: 12px 0; text-align: center; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    nav a { margin: 0 15px; text-decoration: none; color: #004080; font-weight: 600; transition: color 0.3s; }
     nav a:hover { color: #0077b6; }
     /* Main container */
-    main { max-width: 1200px; margin: auto; }
-    section {
-      padding: 60px 20px;
-      margin: auto;
-      max-width: 1000px;
-    }
+    main { max-width: 1200px; margin: auto; padding: 40px 20px; }
+    section { margin-bottom: 60px; }
     /* Section Headers */
     section h2 {
       font-size: 2.5em;
@@ -99,26 +54,8 @@
     section h2.animate::after {
       transform: scaleX(1);
     }
-    /* Paragraphs Fade In */
-    p {
-      font-size: 1.05em;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
     /* Decorative separators */
-    hr {
-      border: 0;
-      height: 2px;
-      background: #0077b6;
-      margin: 40px 0;
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
+    hr { border: 0; height: 2px; background: #0077b6; margin: 40px 0; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     /* Grid & Cards */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .card { background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; text-align: center; transition: transform 0.3s; }
@@ -139,8 +76,8 @@
     .map-container { width: 100%; height: 400px; margin-top: 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .map-container iframe { width: 100%; height: 100%; border: 0; }
     /* Footer */
-    footer { padding: 60px 20px; background: #003366; color: #fff; text-align: center; }
-    /* Animate utility */
+    footer { background: #003366; color: #fff; text-align: center; padding: 20px; font-size: 0.9em; }
+    /* Scroll Animations */
     [data-animate] { opacity: 0; }
     .animate { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
   </style>
@@ -263,29 +200,10 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+      // animate paragraphs
       document.querySelectorAll('p').forEach(p => observer.observe(p));
       document.querySelectorAll('hr').forEach(hr => observer.observe(hr));
       document.querySelectorAll('section h2').forEach(h2 => observer.observe(h2));
-
-      // Hide nav on scroll down, show on scroll up
-      let lastScroll = 0;
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', () => {
-        const current = window.pageYOffset;
-        if (current > lastScroll && current > 100) {
-          nav.style.top = '-80px';
-        } else {
-          nav.style.top = '0';
-        }
-        lastScroll = current;
-      });
-
-      // Parallax effect for header image
-      const headerImg = document.querySelector('.header-img');
-      window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
-        headerImg.style.transform = `translateY(${scrollY * 0.5}px)`;
-      });
     });
   </script>
 </body>
